@@ -1,0 +1,9 @@
+create-dev-env.pl
+setup.py
+test-web-view.py
+MapStats.py
+XOCom.py
+activity/activity-mapstats.svg
+activity/activity.info
+web/index.html
+web/LICENSE.txt

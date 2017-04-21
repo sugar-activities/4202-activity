@@ -1,0 +1,155 @@
+<html>
+<head>
+<title>MapStats 0.3</title>
+<script type="text/javascript">
+function runCommand(cmdIndex){
+	var selectPlace = document.getElementById("command_" + cmdIndex + "_from").value;
+	var selectData = document.getElementById("command_" + cmdIndex + "_property").value
+	var newSource = "";
+	switch(selectPlace){
+		case "usa":
+			newSource = "USA-Map.svg";
+			break;
+		case "africa":
+			newSource = "Africa-Map.svg";
+			break;
+		case "europe":
+			newSource = "Europe-Map.svg";
+			break;
+		case "asia":
+			newSource = "Asia-Map.svg";
+			break;
+		case "nAmerica":
+			newSource = "NorthAmerica-Map.svg";
+			break;
+		case "sAmerica":
+			newSource = "SouthAmerica-Map.svg";
+			break;
+		case "mEast":
+			newSource = "MiddleEast-Map.svg";
+			break;
+	}
+	if(cmdIndex == 0){
+		newSource += "?q=" + selectData;
+	}
+	else{
+		var cType = document.getElementById("command_" + cmdIndex + "_comparison").value;
+		var cValue = document.getElementById("command_" + cmdIndex + "_value").value;
+		var cColor = document.getElementById("command_" + cmdIndex + "_color").value;
+		newSource += "?c=" + selectData + "&cType=" + cType + "&cValue=" + cValue + "&cColor=" + cColor;
+	}
+	document.getElementById("mapBox").src = newSource;
+}
+</script>
+<style>
+body{font-family:verdana,helvetica,sans-serif;font-size:x-small;}
+</style>
+</head>
+<body style="background-color:#FFF;">
+<div style="margin:8px 0px 10px 0px;">
+ <div id="cmdeditor" style="margin:8px 0px 10px 0px;">
+	<div id="command_0" style="font-family:arial;">
+		SELECT FROM <select id="command_0_from" onchange="changeRegion(0)">
+			<option value="usa" selected>USA</option>
+			<option value="africa">Africa</option>
+			<option value="sAmerica">South America</option>
+			<option value="europe">Europe</option>
+			<option value="asia">Asia</option>
+			<option value="nAmerica">North America</option>
+			<option value="mEast">Middle East</option>
+			</select>
+		COLOR BY <select id="command_0_property">
+			<option value="area" selected>Area</option>
+			<option value="population">Population</option>
+			<option value="density">&rarr;Density</option>
+			<option value="coast">Coastline</option>
+			<option value="coast-density">&rarr;Coast Density</option>
+			<option value="internets">Internet Users</option>
+			<option value="internets-capita">&rarr;Internet/Capita</option>
+			<option value="internets-2000">&rarr;Users (2000)</option>
+			<option value="internets-2000-capita">&rarr;Users(2000)/Capita</option>				
+			<option value="mobiles">Mobile Phones</option>
+			<option value="mobiles-capita">&rarr;Mobiles/Capita</option>
+			<option value="mobiles-density">&rarr;Mobiles Density</option>
+			<option value="gdp">Local GDP</option>
+			<option value="gdp-capita">&rarr;GDP/Capita</option>
+			<option value="english">English Speakers</option>
+			<option value="french">French Speakers</option>
+			<option value="spanish">Spanish Speakers</option>
+			<option value="malaria">Malaria</option>
+			<option value="malaria-capita">&rarr;Malaria/Capita</option>
+			<option value="aids">HIV/AIDS</option>
+			<option value="aids-capita">&rarr;AIDS/Capita</option>
+			<option value="tb">Tuberculosis</option>
+			<option value="tb-capita">&rarr;TB/Capita</option>
+			<option value="science">Science Papers</option>
+			<option value="science-capita">&rarr;Papers/Capita</option>
+			<option value="population-1950">Population (1950)</option>
+			<option value="density-1950">&rarr;Density (1950)</option>
+			<option value="statehood">Statehood</option>
+			<option value="territory">Territory</option>
+			<option value="independence">Independence</option>
+			</select>
+		<input type="button" id="command_0_run" value="Run" onclick="runCommand(0)"/>
+	</div>
+	<div id="command_1" style="font-family:arial;">
+		SELECT FROM <select id="command_1_from" onchange="changeRegion(1)">
+			<option value="usa" selected>USA</option>
+			<option value="africa">Africa</option>
+			<option value="sAmerica">South America</option>
+			<option value="europe">Europe</option>
+			<option value="asia">Asia</option>
+			<option value="nAmerica">North America</option>
+			<option value="mEast">Middle East</option>
+			</select>
+		COLOR <select id="command_1_color">
+			<option value="FF0000" selected>red</option>
+			<option value="0000FF">blue</option>
+			<option value="00FF00">green</option>
+			<option value="000000">black</option>
+			</select>
+		WHERE <select id="command_1_property">
+			<option value="name">Name</option>
+			<option value="area" selected>Area</option>
+			<option value="population">Population</option>
+			<option value="density">&rarr;Density</option>
+			<option value="coast">Coastline</option>
+			<option value="internets">Internet Users</option>
+			<option value="internets-capita">&rarr;Internet/Capita</option>
+			<option value="internets-2000">&rarr;Users (2000)</option>
+			<option value="internets-2000-capita">&rarr;Users(2000)/Capita</option>				
+			<option value="mobiles">Mobile Phones</option>
+			<option value="mobiles-capita">&rarr;Mobiles/Capita</option>
+			<option value="mobiles-density">&rarr;Mobiles Density</option>
+			<option value="gdp">Local GDP</option>
+			<option value="gdp-capita">&rarr;GDP/Capita</option>
+			<option value="english">English Speakers</option>
+			<option value="french">French Speakers</option>
+			<option value="spanish">Spanish Speakers</option>
+			<option value="malaria">Malaria</option>
+			<option value="aids">HIV/AIDS</option>
+			<option value="aids-capita">&rarr;AIDS/Capita</option>
+			<option value="tb">Tuberculosis</option>
+			<option value="tb-capita">&rarr;TB/Capita</option>
+			<option value="science">Science Papers</option>
+			<option value="science-capita">&rarr;Papers/Capita</option>
+			<option value="population-1950">Population (1950)</option>
+			<option value="density-1950">&rarr;Density</option>
+			<option value="statehood">Statehood</option>
+			<option value="territory">Territory</option>
+			<option value="independence">Independence</option>
+			</select>
+		IS <select id="command_1_comparison">
+			<option value="equal" selected>=</option>
+			<option value="greater">&gt;</option>
+			<option value="lesser">&lt;</option>			
+		</select>
+		: <input id="command_1_value" value="0" size="14"/>
+		<input type="button" id="command_1_run" value="Run" onclick="runCommand(1)"/>
+	</div>
+	<embed id="mapBox" src="USA-TestMap.svg" width="100%" height="550px" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
+ </div>
+</div>
+ <div id="msg" onclick="this.innerHTML='&nbsp;';"></div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+[Activity]
+name = MapStats
+service_name = com.byodo.MapStats
+class = MapStats.MapStats
+icon = activity-mapstats
+activity_version = 1
+show_launcher = yes
